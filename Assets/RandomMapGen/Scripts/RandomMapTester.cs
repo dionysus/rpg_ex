@@ -42,11 +42,20 @@ public class RandomMapTester : MonoBehaviour
     public float lakePercent = .05f;
 
     public Map map;
+    private int tmpX;
+    private int tmpY;
 
     // Start is called before the first frame update
     void Start()
     {
         map = new Map();
+        MakeMap();
+        StartCoroutine (AddPlayer());
+    }
+
+    IEnumerator AddPlayer(){
+        yield return new WaitForEndOfFrame();
+        CreatePlayer();
     }
 
     public void MakeMap(){
@@ -107,7 +116,17 @@ public class RandomMapTester : MonoBehaviour
         player = Instantiate(playerPrefab);
         player.name = "Player";
         player.transform.SetParent(mapContainer.transform);
-        player.transform.position = new Vector3(0, 0, 0);
+
+        // PosUtil.CalculatePos(map.castleTile.id, map.columns, out tmpX, out tmpY);
+
+        // tmpX *= (int)tileSize.x;
+        // tmpY *= -(int)tileSize.y;
+
+        // player.transform.position = new Vector3(tmpX, tmpY, 0);
+        var controller = player.GetComponent<MapMovementController>();
+        controller.map = map;
+        controller.tileSize = tileSize;
+        controller.MoveTo(map.castleTile.id);
     }
 
     // Destroy all existing tiles
@@ -122,8 +141,11 @@ public class RandomMapTester : MonoBehaviour
 
         var camPos = Camera.main.transform.position;
         var width = map.columns;
-        camPos.x = (index % width) * tileSize.x;
-        camPos.y = -((index/width) * tileSize.y);
+
+        PosUtil.CalculatePos(index, width, out tmpX, out tmpY);
+
+        camPos.x = tmpX * tileSize.x;
+        camPos.y = (-tmpY) * tileSize.y;
         Camera.main.transform.position = camPos;
     }
 

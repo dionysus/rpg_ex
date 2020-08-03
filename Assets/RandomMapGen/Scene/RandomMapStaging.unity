@@ -270,7 +270,17 @@ MonoBehaviour:
     type: 3}
   tileSize: {x: 16, y: 16}
   islandTexture: {fileID: 2800000, guid: 349cae538602ce44f937996655f2ac69, type: 3}
+  playerPrefab: {fileID: 7114513565355465539, guid: 9cd2f30fe7a4a32428f1df6db1068ca7,
+    type: 3}
+  player: {fileID: 0}
   erodePercent: 0.5
+  erodeIterations: 2
+  treePercent: 0.3
+  hillPercent: 0.2
+  mountainPercent: 0.1
+  townPercent: 0.05
+  monsterPercent: 0.1
+  lakePercent: 0.05
 --- !u!4 &1789387962
 Transform:
   m_ObjectHideFlags: 0
