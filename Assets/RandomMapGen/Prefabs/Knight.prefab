@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7114513565355465537}
   - component: {fileID: 7114513565355465538}
   - component: {fileID: 772996989737570576}
+  - component: {fileID: 6690121204631492398}
   m_Layer: 0
   m_Name: Knight
   m_TagString: Untagged
@@ -113,5 +114,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5388a5ba03641384ba3f01c977239c07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tileSize: {x: 0, y: 0}
+--- !u!114 &6690121204631492398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7114513565355465539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b00d2057a6f28f4b8127d0d8434bf61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
